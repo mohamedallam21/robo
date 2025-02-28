@@ -1,0 +1,25 @@
+<launch>
+  <!-- Start Gazebo -->
+  <include file="$(find soly)/launch/robot_description.launch"/>
+
+  <!-- Load the Map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find soly)/maps/map.yaml"/>
+
+  <!-- Start RViz 
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find soly)/rviz/turtlebot3_navigation.rviz"/>-->
+
+  <!-- AMCL for Localization -->
+  <include file="$(find soly)/launch/amcl.launch"/>
+
+  <!-- Coverage Path Planner -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+    <param name="base_global_planner" value="full_coverage_path_planner/SpiralSTC"/>
+    <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+    <param name="controller_frequency" value="10.0"/>
+    <rosparam file="$(find soly)/full_coverage_path_planner/config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+    <rosparam file="$(find soly)/full_coverage_path_planner/config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+    <rosparam file="$(find soly)/full_coverage_path_planner/config/local_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find soly)/full_coverage_path_planner/config/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find soly)/full_coverage_path_planner/config/local_planner_params.yaml" command="load"/>
+  </node>
+</launch>

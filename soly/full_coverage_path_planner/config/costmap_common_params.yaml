@@ -1,0 +1,20 @@
+# Shared parameters for local and global costmaps
+obstacle_layer:
+  enabled: true
+  max_obstacle_height: 0.5
+  combination_method: 1  # Overwrite (1) or Maximum (2)
+  observation_sources: scan
+
+scan:
+  data_type: LaserScan
+  topic: scan
+  marking: true
+  clearing: true
+
+inflation_layer:
+  enabled: true
+  inflation_radius: 0.7
+  cost_scaling_factor: 5.0
+
+robot_radius: 0.4
+

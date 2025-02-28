@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="soly">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.011054 -0.0036281 0.00087418"
+        rpy="0 0 0" />
+      <mass
+        value="3.4407" />
+      <inertia
+        ixx="0.0378"
+        ixy="-0.0005374"
+        ixz="0.00024107"
+        iyy="0.036794"
+        iyz="-0.00022057"
+        izz="0.068758" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.50196 0.50196 0.50196 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="5.5511E-17 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.054244" />
+      <inertia
+        ixx="1.7116E-05"
+        ixy="1.1826E-21"
+        ixz="1.1477E-20"
+        iyy="3.2198E-05"
+        iyz="1.2872E-21"
+        izz="1.7116E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/left_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/left_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0212406685253964 -0.156837477299389 -0.0372547771202758"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="5.5511E-17 1.301E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.054244" />
+      <inertia
+        ixx="1.7116E-05"
+        ixy="4.095E-21"
+        ixz="-3.341E-21"
+        iyy="3.2198E-05"
+        iyz="5.066E-21"
+        izz="1.7116E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/right_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.29804 0.29804 0.29804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/right_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0212406685253783 0.151462522700611 -0.0372547771202757"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="lidar_link">
+    <inertial>
+      <origin
+        xyz="-0.030032 -1.4396E-05 -0.011702"
+        rpy="0 0 0" />
+      <mass
+        value="0.20673" />
+      <inertia
+        ixx="9.8581E-05"
+        ixy="6.059E-08"
+        ixz="2.731E-06"
+        iyy="9.3988E-05"
+        iyz="3.6075E-08"
+        izz="0.00013743" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/lidar_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.69804 0.69804 0.69804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/lidar_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_joint"
+    type="fixed">
+    <origin
+      xyz="0.0382071011949748 -0.00268801927161358 0.0927452794745628"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="lidar_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="ultrasonic_link">
+    <inertial>
+      <origin
+        xyz="-0.0135129398527417 -0.000885994358649722 0.000138154717298"
+        rpy="0 0 0" />
+      <mass
+        value="0.00391542529593063" />
+      <inertia
+        ixx="3.1796509412328E-07"
+        ixy="9.46214068032248E-22"
+        ixz="-3.2817516054534E-11"
+        iyy="1.03578988309517E-07"
+        iyz="1.13097335529236E-09"
+        izz="2.48381258422786E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ultrasonic_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ultrasonic_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ultrasonic_joint"
+    type="fixed">
+    <origin
+      xyz="0.211240668525376 -0.00215148294074055 -0.0186747771202758"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ultrasonic_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  
+  <link
+    name="right_side_brush_link">
+    <inertial>
+      <origin
+        xyz="0 1.66533453693773E-16 -0.0255596699"
+        rpy="0 0 0" />
+      <mass
+        value="0.0110738433763645" />
+      <inertia
+        ixx="2.85377448449106E-06"
+        ixy="-1.23205068655355E-20"
+        ixz="-2.66188982560901E-21"
+        iyy="2.85377448449106E-06"
+        iyz="-9.67802909841855E-21"
+        izz="5.16873208933798E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/right_side_brush_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/right_side_brush_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_side_brush_joint"
+    type="continuous">
+    <origin
+      xyz="0.159740668525393 -0.102687477299381 -0.0712547771202757"
+      rpy="-3.14159265358979 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_side_brush_link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  
+  <link
+    name="caster_wheel_link">
+    <inertial>
+      <origin
+        xyz="-0.00309644382669655 0.0136532792994252 -0.8889"
+        rpy="0 0 0" />
+      <mass
+        value="0.00550772055306897" />
+      <inertia
+        ixx="2.98695866019959E-07"
+        ixy="1.8051176709642E-08"
+        ixz="-1.19805574962427E-23"
+        iyy="2.23195905746442E-07"
+        iyz="-3.95426524490973E-26"
+        izz="3.02789714352025E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/caster_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/caster_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="caster_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.187550932275419 -0.0165012245357518 -0.0622547771202757"
+      rpy="0 0 -0.209439510239261" />
+    <parent
+      link="base_link" />
+    <child
+      link="caster_wheel_link" />
+    <axis
+      xyz="0.221174559049752 -0.975234235673229 0" />
+  </joint>
+  <link
+    name="ir1_link">
+    <inertial>
+      <origin
+        xyz="-0.00481362751522246 0.00132001853896842 0.000172882161482063"
+        rpy="0 0 0" />
+      <mass
+        value="0.00401886169206222" />
+      <inertia
+        ixx="3.93267840144752E-07"
+        ixy="2.98939269827619E-09"
+        ixz="8.86513169312633E-10"
+        iyy="1.06592751976012E-07"
+        iyz="5.62188584345873E-08"
+        izz="3.6011763814111E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ir1_joint"
+    type="fixed">
+    <origin
+      xyz="0.195955295219554 0.0385044353139036 -0.0532547771202757"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ir1_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="ir2_link">
+    <inertial>
+      <origin
+        xyz="-0.00481362801677537 -0.00113558714623704 -0.000694835026359641"
+        rpy="0 0 0" />
+      <mass
+        value="0.00401886327181738" />
+      <inertia
+        ixx="3.93268120546107E-07"
+        ixy="-2.37043296433581E-09"
+        ixz="-2.02579070933095E-09"
+        iyy="1.06755791464812E-07"
+        iyz="-5.65850445734827E-08"
+        izz="3.59954836064108E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ir2_joint"
+    type="fixed">
+    <origin
+      xyz="0.196524000604301 -0.0412038414361793 -0.0532547771202757"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ir2_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="ir3_link">
+    <inertial>
+      <origin
+        xyz="-0.00481362699767693 -0.000356632379966471 -0.00128264314024309"
+        rpy="0 0 0" />
+      <mass
+        value="0.00401885992553366" />
+      <inertia
+        ixx="3.9326752284973E-07"
+        ixy="-3.51976309367688E-10"
+        ixz="-3.09818608179275E-09"
+        iyy="2.80971080995922E-07"
+        iyz="-1.30238099937933E-07"
+        izz="1.85739047870527E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ir3_joint"
+    type="fixed">
+    <origin
+      xyz="0.119808606366819 -0.15892448730863 -0.0532547771202758"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ir3_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="ir4_link">
+    <inertial>
+      <origin
+        xyz="-0.00481362670731214 -0.00108331607509763 0.00077381911838259"
+        rpy="0 0 0" />
+      <mass
+        value="0.0040188584332583" />
+      <inertia
+        ixx="3.93267300685738E-07"
+        ixy="-2.79095960373661E-09"
+        ixz="1.39038933506485E-09"
+        iyy="2.80594324911853E-07"
+        iyz="1.30375094152064E-07"
+        izz="1.8611562393443E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir4_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/ir4_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ir4_joint"
+    type="fixed">
+    <origin
+      xyz="0.117567961905311 0.155118448852247 -0.0532547771202757"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="ir4_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="main_brush_link">
+    <inertial>
+      <origin
+        xyz="0.00250001222493607 0.0470454914769228 -0.214783335024649"
+        rpy="0 0 0" />
+      <mass
+        value="0.045853585904049" />
+      <inertia
+        ixx="0.000150195117671436"
+        ixy="4.06661441554268E-14"
+        ixz="-7.58448022929634E-14"
+        iyy="1.70710345052347E-06"
+        iyz="-9.33616160384872E-15"
+        izz="0.000150195117358422" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/main_brush_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soly/meshes/main_brush_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="main_brush_joint"
+    type="continuous">
+    <origin
+      xyz="0.196524000604301 -0.0412038414361793 -0.0532547771202757"
+      rpy="0 1.5707963267949 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="main_brush_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+</robot>

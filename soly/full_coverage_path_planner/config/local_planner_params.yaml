@@ -1,0 +1,21 @@
+DWAPlannerROS:
+  # Trajectory Parameters
+  acc_lim_x: 1.0
+  acc_lim_y: 0.0
+  acc_lim_theta: 0.5
+  max_vel_x: 0.8
+  min_vel_x: 0.2
+  max_vel_theta: 1.0
+  min_vel_theta: -1.0
+  min_in_place_vel_theta: 0.4
+
+  # Goal Tolerance
+  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance: 0.1
+
+  # Obstacle Avoidance
+  inflation_radius: 0.5
+  cost_scaling_factor: 10.0
+
+  # Oscillation Prevention
+  oscillation_reset_dist: 0.05
