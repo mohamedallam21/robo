@@ -1,181 +1,93 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="robot">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="soly">
   <xacro:include filename="$(find soly)/urdf/robot.gazebo"/>
   <xacro:include filename="$(find soly)/urdf/sensor.xacro"/>
 
   <link name="base_link">
     <inertial>
-      <origin xyz="-0.0091985 -0.0046828 0.0013048" rpy="0 0 0"/>
-      <mass value="3.6805"/>
-      <inertia
-        ixx="0.038279"
-        ixy="-0.00052205"
-        ixz="-0.00014548"
-        iyy="0.039097"
-        iyz="-0.00021532"
-        izz="0.071355"/>
+      <origin xyz="-0.0023666 -0.0061008 -0.0017152" rpy="0 0 0" />
+      <mass value="3.1116" />
+      <inertia ixx="0.030574" ixy="-0.0004163" ixz="-1.3976E-05" iyy="0.03032" iyz="-0.00015896" izz="0.055894" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/base_link.STL"/>
+        <mesh filename="package://soly/meshes/base_link.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.50196 0.50196 0.50196 1"/>
+        <color rgba="0.274 0.509 0.705 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/base_link.STL"/>
+        <mesh filename="package://soly/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
-
-  <link name="battery_link">
+  
+  <link name="right_wheel_Link">
     <inertial>
-      <origin xyz="-0.020007 1.8219E-06 -7.6108E-05" rpy="0 0 0"/>
-      <mass value="0.20743"/>
-      <inertia
-        ixx="0.00018362"
-        ixy="-2.6787E-09"
-        ixz="4.0731E-08"
-        iyy="0.00010052"
-        iyz="-1.0424E-08"
-        izz="0.00013855"/>
+      <origin xyz="0 -0.0075 0" rpy="0 0 0" />
+      <mass value="0.054243838245486" />
+      <inertia ixx="1.71160505001731E-05" ixy="-8.94718916174317E-22" ixz="-5.79682761060264E-21" 
+               iyy="3.21979570661404E-05" iyz="8.02608461219266E-22" izz="1.7116050500173E-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/battery_link.STL"/>
+        <mesh filename="package://soly/meshes/right_wheel_Link.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.79216 0.81961 0.93333 1"/>
+        <color rgba="0.298 0.298 0.298 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/battery_link.STL"/>
+        <mesh filename="package://soly/meshes/right_wheel_Link.STL" />
       </geometry>
     </collision>
   </link>
-
-  <joint name="battery_joint" type="fixed">
-    <origin xyz="0.13606 -0.0029825 -0.019543" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="battery_link"/>
+  
+  <joint name="right_wheel_joint" type="continuous">
+    <origin xyz="-0.029871 0.15291 -0.034743" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="right_wheel_Link" />
+    <axis xyz="0 1 0" />
   </joint>
-
+  
   <link name="left_wheel_link">
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <mass value="0.0542438382454859"/>
-      <inertia
-        ixx="1.71160505001731E-05"
-        ixy="-6.89608314764242E-22"
-        ixz="-6.11701678570096E-21"
-        iyy="3.21979570661404E-05"
-        iyz="3.40705658192294E-21"
-        izz="1.7116050500173E-05"/>
+      <origin xyz="-5.55E-17 0.0075 2.77E-17" rpy="0 0 0" />
+      <mass value="0.054243838245486" />
+      <inertia ixx="1.7116050500173E-05" ixy="4.71102933667598E-21" ixz="-6.16932141916073E-21" 
+               iyy="3.21979570661404E-05" iyz="2.82263779720997E-21" izz="1.7116050500173E-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/left_wheel_link.STL"/>
+        <mesh filename="package://soly/meshes/left_wheel_link.STL" />
       </geometry>
       <material name="">
-        <color rgba="0.298039215686275 0.298039215686275 0.298039215686275 1"/>
+        <color rgba="0.298 0.298 0.298 1" />
       </material>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://robo/meshes/left_wheel_link.STL"/>
+        <mesh filename="package://soly/meshes/left_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
-
+  
   <joint name="left_wheel_joint" type="continuous">
-    <origin xyz="-0.024436 -0.15163 -0.036043" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="left_wheel_link"/>
-    <axis xyz="0 -1 0"/>
+    <origin xyz="-0.029871 -0.16039 -0.034743" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="left_wheel_link" />
+    <axis xyz="0 -1 0" />
   </joint>
-
-  <link name="right_wheel_link">
-    <inertial>
-      <origin xyz="0 -0.00749999999999998 2.77555756156289E-17" rpy="0 0 0"/>
-      <mass value="0.0542438382454859"/>
-      <inertia
-        ixx="1.71160505001731E-05"
-        ixy="4.54094771042603E-21"
-        ixz="-5.82887682037124E-21"
-        iyy="3.21979570661404E-05"
-        iyz="4.54869079375004E-21"
-        izz="1.7116050500173E-05"/>
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://robo/meshes/right_wheel_link.STL"/>
-      </geometry>
-      <material name="">
-        <color rgba="0.298039215686275 0.298039215686275 0.298039215686275 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://robo/meshes/right_wheel_link.STL"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="right_wheel_joint" type="continuous">
-    <origin xyz="-0.024436 0.15417 -0.036043" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="right_wheel_link"/>
-    <axis xyz="0 1 0"/>
-  </joint>
-
-  <link name="right_side_brush_link">
-    <inertial>
-      <origin xyz="6.93889390390723E-16 -3.19189119579733E-16 0.00606427210631377" rpy="0 0 0"/>
-      <mass value="0.0121949722901118"/>
-      <inertia
-        ixx="2.93228333981093E-06"
-        ixy="-7.34916189715922E-20"
-        ixz="-1.77311758017326E-20"
-        iyy="2.93228333981094E-06"
-        iyz="9.57791703148365E-21"
-        izz="5.29854321484753E-06"/>
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://robo/meshes/right_side_brush_link.STL"/>
-      </geometry>
-      <material name="">
-        <color rgba="0 1 0 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://robo/meshes/right_side_brush_link.STL"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="right_side_brush_joint" type="continuous">
-    <origin xyz="0.15656 0.097517 -0.068043" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="right_side_brush_link"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-
-  <!-- Adding the new link (link_1) -->
+  
   <link name="link_1">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -190,76 +102,18 @@
       <material name="Gazebo/Grey">
         <color rgba="0.7 0.7 0.7 1"/>
       </material>
-      <cast_shadows>true</cast_shadows>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <sphere radius="0.015"/>
       </geometry>
-      <surface>
-        <friction>
-          <ode>
-            <mu>1</mu>
-            <mu2>1</mu2>
-            <fdir1>0 0 0</fdir1>
-            <slip1>0</slip1>
-            <slip2>0</slip2>
-          </ode>
-        </friction>
-        <bounce>
-          <restitution_coefficient>0</restitution_coefficient>
-          <threshold>1e+06</threshold>
-        </bounce>
-        <contact>
-          <collide_without_contact>0</collide_without_contact>
-          <collide_bitmask>1</collide_bitmask>
-          <ode>
-            <soft_cfm>0</soft_cfm>
-            <soft_erp>0.2</soft_erp>
-            <kp>1e+13</kp>
-            <kd>1</kd>
-            <max_vel>0.01</max_vel>
-            <min_depth>0</min_depth>
-          </ode>
-        </contact>
-      </surface>
     </collision>
   </link>
-
+  
   <joint name="link_1_joint" type="continuous">
     <parent link="base_link"/>
     <child link="link_1"/>
     <origin xyz="0.186367 -0.001405 -0.055595" rpy="0.003639 0.025 0.147249"/>
-  </joint>
-  <link name="left_side_brush_link">
-    <inertial>
-      <origin xyz="5.82867087928207E-16 -3.60822483003176E-16 0.00622801767407707" rpy="0 0 0"/>
-      <mass value="0.0123176907531427"/>
-      <inertia ixx="2.96555080657689E-06" ixy="-1.04446932724667E-19" ixz="-2.20739327648771E-20" 
-               iyy="2.96555080657689E-06" iyz="1.16049378174348E-20" izz="5.29892671004455E-06"/>
-    </inertial>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://hamzaa/meshes/left_side_brush_link.STL"/>
-      </geometry>
-      <material name="">
-        <color rgba="0 1 0 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <mesh filename="package://hamzaa/meshes/left_side_brush_link.STL"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="left_side_brush_joint" type="continuous">
-    <origin xyz="0.154755037176872 -0.102597387942504 -0.0683840444516484" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="left_side_brush_link"/>
-    <axis xyz="0 0 1"/>
   </joint>
 </robot>
